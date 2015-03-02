@@ -1,3 +1,9 @@
+# Serving
+detach:  false
+port:    8080
+host:    0.0.0.0
+baseurl: "" # does not include hostname
+
 # This is the default format. 
 # For more see: http://jekyllrb.com/docs/permalinks/
 permalink: /:categories/:year/:month/:day/:title 
