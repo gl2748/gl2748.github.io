@@ -15,12 +15,73 @@
 
 /* Jekyll Bootstrap Colors */
 h1, h2, h3, h4 {
-  color: #f22430;
-}
-#footer {
-  background-color: #fdcd60;
+  color: #50505a;
 }
 
+#footer {
+background: #fff;
+}
+
+/*custom */
+
+* { 
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.profile-image {
+padding-top: 10%;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+} 
+
+h1, h2, h3, h4 {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-feature-settings: "kern", "swsh";
+    src: local('Open Sans Bold'),url(http://brick.a.ssl.fastly.net/fonts/opensans/700.woff) format('woff');
+}
+
+body {
+    cursor: default;
+    background: #fff;
+    
+    font-family: 'EB Garamond';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 19px;
+    line-height: 1.6;
+    src: local('EB Garamond 12'),url(//brick.a.ssl.fastly.net/fonts/ebgaramond/400.woff) format('woff');    
+}
+
+a {
+    color: #222;
+    text-decoration: none;
+    border-bottom: solid 1px #eee;
+    transition: color 250ms linear;
+}
+
+
+a:hover {
+    color: #3d8;
+    border-bottom: solid 1px #efd;
+    transition: color 100ms linear;
+    text-decoration: none;
+}
+
+/* blog header */
+.blog-header > div { margin: 0 1.4em; height: 50px; border-bottom: solid 1px rgba(208, 208, 208, 0.25); }
+.blog-header h1 { line-height: 50px; text-transform: uppercase; font-weight: 400; font-size: 0.8em; text-align: center; }
+.blog-header h1, .blog-header h1 a { color: #d0d0d0; text-decoration: none; }
+.blog-header h1 a:hover { color: #404040; }
 
 
 /* posts index */

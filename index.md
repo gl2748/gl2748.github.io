@@ -1,6 +1,6 @@
 ---
 layout: frontpage
-title: / /\ / /\/
+title: Iain Maitland
 tagline: Technical blog. 
 ---
 {% include JB/setup %}
