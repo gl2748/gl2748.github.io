@@ -6,8 +6,6 @@ tags : [email, contact, pgp, encryption]
 ---
 {% include JB/setup %}
 
-Hi, I look forward to communicating with some pretty good protection.
-    
     -----BEGIN PGP SIGNATURE-----
     Version: GnuPG v1
     
