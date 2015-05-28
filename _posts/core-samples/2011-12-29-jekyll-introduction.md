@@ -87,8 +87,6 @@ Jekyll expects your website directory to be laid out like so:
     |-- _config.yml
     |-- _includes
     |-- _layouts
-    |   |-- default.html
-    |   |-- post.html
     |-- _posts
     |   |-- 2011-10-25-open-source-is-good.markdown
     |   |-- 2011-04-26-hello-world.markdown
@@ -410,3 +408,5 @@ Jekyll-bootstrap is intended to provide helper methods and strategies aimed at m
 
 Please take a look at [{{ site.categories.api.first.title }}]({{ BASE_PATH }}{{ site.categories.api.first.url }})
 or jump right into [Usage]({{ BASE_PATH }}{{ site.categories.usage.first.url }}) if you'd like.
+---
+layout: post
