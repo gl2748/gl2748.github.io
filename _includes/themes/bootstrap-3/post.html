@@ -54,9 +54,13 @@
 
 </div>
 </div>
-</div>
 
-<div class="col-sm-4 blog-main">
-    {{ content }}
+<div class="col-sm-8 blog-main">
+    <ul class="posts">
+    {% for post in site.posts %}
+    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
+  {% endfor %}
+</ul>
+
   </div>
-
+</div>
