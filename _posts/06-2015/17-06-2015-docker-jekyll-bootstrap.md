@@ -15,6 +15,7 @@ This project brings together two existing projects:
 
 ###Why
 Jekyll has a bunch of great features for blogging, especially if you are a developer, as a static site generator it's fast and it can be hosted for free with github pages. That said it can be difficult to theme, especially if you want to depart from its defaults. Bootstrap meanwhile is a flexible approach to content layout using html and css, there is a lot of good documentation available.
+
 > "One of the hardest things about Jekyll is understanding and mastering the Liquid templating language. 
 JB ships with pre-built pages that would make you cry T_T to have to code manually in Liquid."
 
