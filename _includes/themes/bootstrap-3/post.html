@@ -1,13 +1,27 @@
+<div class="blog-header">
+  <h1><a href="/">Iain Maitland's Blog</a></h1>
+</div>
+
 <div class ="container">
   <div class="row">
     <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
       <div class="sidebar-module sidebar-module-inset">
         <div class ="profile-image">
-<img src="assets/NEisenman_Untitled_2012_NE_126_300-501x650.jpg" class="img-responsive" alt="Responsive image">
+        
+
         </div>
-<h1>    
+        <h1>    
 	{{ page.title }}
+        <hr>
+        {% if page.tagline %}<small>{{page.tagline}}</small>{% endif %}
 	</h1>
+        <hr>
+      <div class="date">
+        <span>{{ page.date | date_to_long_string }}</span>
+      </div> 
+
+
+
       </div>
     </div><!-- /.blog-sidebar -->
 
@@ -15,6 +29,26 @@
     <div class="col-sm-8 blog-main">
     {{ content }}
     </div>
+
+{% unless page.categories == empty %}
+        <ul class="tag_box inline">
+          <li><i class="glyphicon glyphicon-open"></i></li>
+          {% assign categories_list = page.categories %}
+          {% include JB/categories_list %}
+        </ul>
+      {% endunless %}
+
+    {% unless page.tags == empty %}
+      <ul class="tag_box inline">
+        <li><i class="glyphicon glyphicon-tags"></i></li>
+        {% assign tags_list = page.tags %}
+        {% include JB/tags_list %}
+      </ul>
+    {% endunless %}
+
+
+
+
 
 </div>
 </div>
