@@ -83,6 +83,9 @@ a:hover {
 .blog-header h1, .blog-header h1 a { color: #d0d0d0; text-decoration: none; }
 .blog-header h1 a:hover { color: #404040; }
 
+/* blog content */
+.blog-main {padding-top: 2em;}
+
 
 /* posts index */
 .post > h3.title {
