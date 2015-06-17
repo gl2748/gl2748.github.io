@@ -18,18 +18,20 @@
     <div class="content">
       {{ content }}
     </div>
+
 </div>
 
 
-<div class = "row posts">
-  <div class = "col-xs-4">
-    <ul class="posts">
+<div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+  <div class="sidebar-module sidebar-module-inset">
+<ul class="posts">
     {% for post in site.posts %}
     <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
   {% endfor %}
 </ul>
 </div>
 </div>
+
 
   {% unless page.categories == empty %}
     <ul class="tag_box inline">
