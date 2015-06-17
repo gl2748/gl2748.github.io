@@ -14,15 +14,25 @@ This project brings together two existing projects:
 2. [Jekyll & Bootstrap](https://github.com/plusjade/jekyll-bootstrap/) "The quickest way to start and publish your Jekyll powered blog. 100% compatible with GitHub pages."
 
 ###Why
-Jekyll has a bunch of great features for blogging, especially if you are a developer, as a static site generator it's fast and it can be hosted for free with github pages. That said it can be difficult to theme, especially if you want to depart from its defaults. Bootstrap meanwhile is a flexible approach to content layout using html and css, there is a lot of good documentation available.
+Jekyll has a bunch of great features for blogging, as a static site generator it's fast and it can be hosted for free with github pages. 
+####But
+Jekyll has a number of dependencies:
+* Ruby (including development headers)
+* RubyGems
+* NodeJS, or another JavaScript runtime (for CoffeeScript support).
 
-> "One of the hardest things about Jekyll is understanding and mastering the Liquid templating language. 
-JB ships with pre-built pages that would make you cry T_T to have to code manually in Liquid."
+
+Jekyll can be difficult to theme, especially if you want to depart from its defaults. Bootstrap meanwhile is a flexible approach to content layout using html and css, there is a lot of good documentation available.
+
+> ["One of the hardest things about Jekyll is understanding and mastering the Liquid templating language. 
+JB ships with pre-built pages that would make you cry T_T to have to code manually in Liquid."](http://jekyllbootstrap.com/)
+
+Overall then this project aims to mange your dependencies while making theming easy.
 
 ###How
 When using Docker, it's always a good idea to search the [Dockerhub](https://registry.hub.docker.com/) for existing buildfiles. Sure enough someone has already written a [buildfile for all of your Jekyll pre-requisites](https://registry.hub.docker.com/u/grahamc/jekyll/).
 
-Let's start by pulling that base:
+Let's start by pulling that base image:
 ```
 docker pull grahamc/jekyll
 ```
