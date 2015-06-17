@@ -17,7 +17,8 @@ This project brings together two existing projects:
 Jekyll has a bunch of great features for blogging, as a static site generator it's fast and it can be hosted for free with github pages. 
 
 ####But
-Jekyll has a number of dependencies:
+[Jekyll has a number of dependencies](http://jekyllrb.com/docs/installation/#requirements):
+
 * Ruby (including development headers)
 * RubyGems
 * NodeJS, or another JavaScript runtime (for CoffeeScript support).
