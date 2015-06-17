@@ -1,3 +1,11 @@
+---
+layout: post
+category : docker
+tagline: "Docker and a Ruby app and a seperate database."
+tags : [ docker containers, bash, postgres, ruby on rails]
+---
+{% include JB/setup %}
+
 #Ohana meets Docker
 
 ##Introduction
