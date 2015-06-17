@@ -1,68 +1,66 @@
 <div class="blog-header">
-<h1>
-<a href="/">Iain Maitland's Blog</a></h1>
+  <h1><a href="/">Iain Maitland's Blog</a></h1>
 </div>
 
 <div class ="container">
-<div class ="row">
-<div class="col-sm-8 col-sm-offset-1 blog-sidebar">
+  <div class ="row">
+    <div class="col-sm-8 col-sm-offset-1 blog-sidebar">
 
-<div class="page-header">
-  <h1>{{ page.title }} {% if page.tagline %}<small>{{page.tagline}}</small>{% endif %}</h1>
-</div>
-    <div class="date">
-      <span>{{ page.date | date_to_long_string }}</span>
-    </div>
-    <div class="content">
-      {{ content }}
-    </div>
+      <div class="page-header">
+        <h1>{{ page.title }} {% if page.tagline %}<small>{{page.tagline}}</small>{% endif %}</h1>
+      </div>
+        <div class="date">
+          <span>{{ page.date | date_to_long_string }}</span>
+        </div>
+        <div class="content">
+        {{ content }}
+        </div>
 
-  {% unless page.categories == empty %}
-    <ul class="tag_box inline">
-      <li><i class="glyphicon glyphicon-open"></i></li>
+    {% unless page.categories == empty %}
+      <ul class="tag_box inline">
+        <li><i class="glyphicon glyphicon-open"></i></li>
       {% assign categories_list = page.categories %}
       {% include JB/categories_list %}
-    </ul>
-  {% endunless %}  
+      </ul>
+    {% endunless %}  
 
-  {% unless page.tags == empty %}
-    <ul class="tag_box inline">
-      <li><i class="glyphicon glyphicon-tags"></i></li>
-      {% assign tags_list = page.tags %}
-      {% include JB/tags_list %}
-    </ul>
-  {% endunless %}  
+    {% unless page.tags == empty %}
+      <ul class="tag_box inline">
+        <li><i class="glyphicon glyphicon-tags"></i></li>
+        {% assign tags_list = page.tags %}
+        {% include JB/tags_list %}
+      </ul>
+    {% endunless %}  
   
-    <hr>
-    <ul class="pagination">
-    {% if page.previous %}
-      <li class="prev"><a href="{{ BASE_PATH }}{{ page.previous.url }}" title="{{ page.previous.title }}">&laquo; Previous</a></li>
-    {% else %}
-      <li class="prev disabled"><a>&larr; Previous</a></li>
-    {% endif %}
-      <li><a href="{{ BASE_PATH }}{{ site.JB.archive_path }}">Archive</a></li>
-    {% if page.next %}
-      <li class="next"><a href="{{ BASE_PATH }}{{ page.next.url }}" title="{{ page.next.title }}">Next &raquo;</a></li>
-    {% else %}
-      <li class="next disabled"><a>Next &rarr;</a>
-    {% endif %}
-    </ul>
-    <hr>
-    {% include JB/comments %}
+      <hr>
+        <ul class="pagination">
+        {% if page.previous %}
+          <li class="prev"><a href="{{ BASE_PATH }}{{ page.previous.url }}" title="{{ page.previous.title }}">&laquo; Previous</a></li>
+        {% else %}
+          <li class="prev disabled"><a>&larr; Previous</a></li>
+        {% endif %}
+          <li><a href="{{ BASE_PATH }}{{ site.JB.archive_path }}">Archive</a></li>
+        {% if page.next %}
+          <li class="next"><a href="{{ BASE_PATH }}{{ page.next.url }}" title="{{ page.next.title }}">Next &raquo;</a></li>
+        {% else %}
+          <li class="next disabled"><a>Next &rarr;</a>
+        {% endif %}
+        </ul>
+      <hr>
+        {% include JB/comments %}
+      
+    </div>
   </div>
 </div>
 
-</div>
-</div>
-
 <div class="row">
-<div class="col-sm-4">
-<ul class="posts">
-    {% for post in site.posts %}
-    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
-  {% endfor %}
-</ul>
-</div>
+  <div class="col-sm-4">
+    <ul class="posts">
+      {% for post in site.posts %}
+      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
 </div>
 
 </div>
