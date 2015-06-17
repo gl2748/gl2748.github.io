@@ -15,6 +15,7 @@ This project brings together two existing projects:
 
 ###Why
 Jekyll has a bunch of great features for blogging, as a static site generator it's fast and it can be hosted for free with github pages. 
+
 ####But
 Jekyll has a number of dependencies:
 * Ruby (including development headers)
