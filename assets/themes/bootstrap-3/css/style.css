@@ -78,7 +78,7 @@ a:hover {
 }
 
 /* blog header */
-.blog-header > div { text-align: center; margin: 0 1.4em; height: 1.0em; border-bottom: solid 1px rgba(208, 208, 208, 0.25); }
+.blog-header > div {  height: 1.0em; border-bottom: solid 1px rgba(208, 208, 208, 0.25); }
 .blog-header h1 { line-height: 1.0em; text-transform: uppercase; font-weight: 400; font-size: 0.8em; text-align: center; }
 .blog-header h1, .blog-header h1 a { color: #d0d0d0; text-decoration: none; }
 .blog-header h1 a:hover { color: #404040; }
