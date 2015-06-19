@@ -47,9 +47,11 @@ SHOW COLUMNS FROM atms IN autotellermachines;
     * Columns from the CSV might need to be placed *inbetween* exisiting columns on the DB table.
 
 
-* Also because my original csv does not include a unique identifier for each ATM i will add a column to my new table to uniquely identify each item. This is what the `db_atm_id SMALLINT(5) NOT NULL AUTO_INCREMENT` statement is for below.
+* Also because my original csv does not include a unique identifier for each ATM I will add a column to my new table to uniquely identify each item. This is what the `db_atm_id SMALLINT(5) NOT NULL AUTO_INCREMENT` and `PRIMARY KEY (db_atm_id)` statements are for.
 
-### Create your new table:
+### Create your new table with the desired columns:
+
+Assuming we have successfully created a database we can add a table with the desired columns. You can ignore this step if you already have a table with columns.
 
     CREATE TABLE atms (
         db_atm_id SMALLINT(5) NOT NULL AUTO_INCREMENT,
@@ -73,5 +75,7 @@ SHOW COLUMNS FROM atms IN autotellermachines;
         completion_date DATE,
         PRIMARY KEY (db_atm_id)
     );
+
+### Let's sketch the LOAD DATA infile command that we will use
 
 
