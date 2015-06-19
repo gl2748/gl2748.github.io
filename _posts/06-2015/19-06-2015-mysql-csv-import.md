@@ -32,7 +32,43 @@ That'll be important in a moment.
 
 ### Get your database ready.
 
-I do not have an existing database so I will sketch one out. I want to describe my column-data-types in such a way that they can hold the information from my CSV efficiently and accurately. Alternatively if I have an existing database called 'autotellermachines' with a table called 'atms' I can use;
+I do not have an existing database so I will sketch one out. I want to describe my column-data-types in such a way that they can hold the information from my CSV efficiently and accurately.
+
+#### My original spreadsheet looks a bit like this
+
+    +------------+----------+------/   /------+---------+----------------+
+    | Customer Id| Services | Route/   / zip   | logitude| latitude       |
+    +------------+----------+------/   /-------+---------+----------------+
+    | Bank1      | clean    | Det  /   / 48212 |-83.21934| 42.49959       |
+    | Big Bank   | survey   | Oh   /   / 98202 |-82.74849| 42.49959       |
+    | Bank1      | evaluate | Det  /   / 48940 |-82.85849| 42.49959       |
+    | Bank2      | clean    | Det  /   / 73822 |-83.20132| 42.49959       |
+    | Small Bank | clean    | Det  /   / 67382 |-83.20132| 42.49959       |
+    +------------+----------+------/   /-------+---------+----------------+
+
+
+#### My sketch like this
+
+    customer_name VARCHAR(255)
+    services VARCHAR(255)
+    route CHAR(20)
+    job_id CHAR(10)
+    atm_id CHAR(8)
+    description VARCHAR(255)
+    address VARCHAR(255)
+    city CHAR(20)
+    state CHAR(2)
+    zip CHAR(5)
+    latitude FLOAT
+    longitude FLOAT
+    placement_information VARCHAR(255)
+    atm_manufacturer VARCHAR(255)
+    atm_model VARCHAR(255)
+    last_service DATE
+    service_after DATE
+    completion_date DATE
+
+Alternatively if I have an existing database called 'autotellermachines' with a table called 'atms' I can use;
 
 `
 SHOW COLUMNS FROM atms IN autotellermachines;
