@@ -84,7 +84,7 @@ SHOW COLUMNS FROM atms IN autotellermachines;
         * The elephant in the room is flexible mapping of CSV columns to DB columns. As it stands the work-around for this is to re-order the columns in the DB so that they match the CSV for import, complete the import and then return the database columns to its original order.
 
 
-* My original csv does not include a unique identifier for each ATM I will add a column to my new table to uniquely identify each item. This is what the `db_atm_id SMALLINT(5) NOT NULL AUTO_INCREMENT` and `PRIMARY KEY (db_atm_id)` statements are for in the CREATE TABLE statement below.
+* My original csv does not include a unique identifier for each ATM. I will add a column to my new table to uniquely identify each item. This is what the `db_atm_id SMALLINT(5) NOT NULL AUTO_INCREMENT` and `PRIMARY KEY (db_atm_id)` statements are for in the CREATE TABLE statement below.
 
 ### Create your new table with the desired columns:
 
@@ -96,9 +96,13 @@ First create a new database, we define the character encoding to match our CSV:
 
 Alternatively inspect the character set of your existing table:
 
+    SHOW FULL COLUMNS FROM table_name;
+
+And change it (with Caution):
+
     ALTER TABLE tbl_name CONVERT TO CHARACTER SET charset_name;
 
-Be wary when changing character sets, and I would never 'scale down' ... consider changing your CSV character set first, try re-exporting it from your spreadsheet software. 
+> Be wary when changing character sets, and I would never 'scale down' ... consider changing your CSV character set first, try re-exporting it from your spreadsheet software. 
 
 Assuming we have successfully created a database we can add a table with the desired columns. You can ignore this step if you already have a table with columns.
 
