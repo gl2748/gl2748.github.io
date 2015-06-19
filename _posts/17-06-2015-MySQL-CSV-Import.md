@@ -47,7 +47,7 @@ I do not have an existing database so I will sketch one out. I want to describe 
     +------------+----------+------/   /-------+---------+----------------+
 
 
-#### My sketch like this
+#### My sketch looks like this
 
     customer_name VARCHAR(255)
     services VARCHAR(255)
@@ -80,18 +80,25 @@ SHOW COLUMNS FROM atms IN autotellermachines;
 * If I am importing into an existing database, the columns from my CSV and the columns from the table might not line up. i.e.
 
     * Columns from the CSV might need to be placed *after* existing columns on the DB table.
-    * Columns from the CSV might need to be placed *inbetween* exisiting columns on the DB table.
+    * Columns from the CSV might need to dropped.
+        * The elephant in the room is flexible mapping of CSV columns to DB columns. As it stands the work-around for this is to re-order the columns in the DB so that they match the CSV for import, complete the import and then return the database columns to its original order.
 
 
-* Also because my original csv does not include a unique identifier for each ATM I will add a column to my new table to uniquely identify each item. This is what the `db_atm_id SMALLINT(5) NOT NULL AUTO_INCREMENT` and `PRIMARY KEY (db_atm_id)` statements are for.
+* My original csv does not include a unique identifier for each ATM I will add a column to my new table to uniquely identify each item. This is what the `db_atm_id SMALLINT(5) NOT NULL AUTO_INCREMENT` and `PRIMARY KEY (db_atm_id)` statements are for.
 
 ### Create your new table with the desired columns:
 
-First create a new database, we define the character encoding to conform to our CSV:
+First create a new database, we define the character encoding to match our CSV:
 
     CREATE DATABASE autotellermachines
         DEFAULT CHARACTER SET ascii
         DEFAULT COLLATE ascii_general_ci;
+
+Alternatively inspect the character set of your existing table:
+
+    ALTER TABLE tbl_name CONVERT TO CHARACTER SET charset_name;
+
+Be wary when changing character sets, and I would never 'scale down' ... consider changing your CSV character set first, try re-exporting it from your spreadsheet software. 
 
 Assuming we have successfully created a database we can add a table with the desired columns. You can ignore this step if you already have a table with columns.
 
@@ -138,9 +145,11 @@ Here is the command, with comments.
         // Do we want all the lines from the CSV? The IGNORE option can only skip lines at the start of the file.
         IGNORE 1 LINES
         // If our CSV columns imported in a linear way from left to right, without gaps,  what is the order of the columns that they map onto. We can use @dummy to dump CSV columns i.e. map them to nowhere...
-        // NOTE we start at the second column of our atms table, the db_atm_id is being auto generated incrementally
+        // NOTE: we start at the second column of our atms table, the db_atm_id is being auto generated incrementally
         (customer_name, services, route, job_id, atm_id, description, address, city, state, zip, latitude, longitude, placement_information, atm_manufacturer, atm_model, @last_service_var, @service_after_var, @completion_date_var)
+        //Now it's time to SET those user variables, user variables that are not set result in a dropped column from the CSV.
     SET 
+        //We need to conform the dates in our CSV to the MySQL standard
         last_service = STR_TO_DATE(@last_service_var, '%m/%d/%Y')
         service_after = STR_TO_DATE(@service_after_var, '%m/%d/%Y') 
         completion_date = STR_TO_DATE(@completion_date_var, '%m/%d/%Y');
