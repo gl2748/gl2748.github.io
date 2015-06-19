@@ -77,7 +77,7 @@ SHOW COLUMNS FROM atms IN autotellermachines;
 ### Take note of possible issues.
 * I need to take note of any column-data-types that need to be input in a specific way. For example dates in MYSQL must be in the format: YYYY-MM-DD and my CSV dates are in the format MM-DD-YY. 
 
-* The columns from my CSV and the columns from the table might not line up. i.e.
+* If I am importing into an existing database, the columns from my CSV and the columns from the table might not line up. i.e.
 
     * Columns from the CSV might need to be placed *after* existing columns on the DB table.
     * Columns from the CSV might need to be placed *inbetween* exisiting columns on the DB table.
@@ -121,11 +121,12 @@ Assuming we have successfully created a database we can add a table with the des
         ESCAPED BY '"' 
         LINES TERMINATED BY '\n' 
         IGNORE 1 LINES
-        (customer_name, services, route, job_id, atm_id, description, address, city, state,   zip, latitude, longitude, placement_information, atm_manufacturer, atm_model, @lsvar, service_after, completion_date)
+        // NOTE we start at the second column of our atms table
+        (customer_name, services, route, job_id, atm_id, description, address, city, state, zip, latitude, longitude, placement_information, atm_manufacturer, atm_model, @last_service_var, @service_after_var, @completion_date_var)
     SET 
-        last_service = STR_TO_DATE(@lsvar, '%m/%d/%Y')
-        service_after = STR_TO_DATE(@lsvar, '%m/%d/%Y') 
-        completion_date = STR_TO_DATE(@lsvar, '%m/%d/%Y') 
+        last_service = STR_TO_DATE(@last_service_var, '%m/%d/%Y')
+        service_after = STR_TO_DATE(@service_after_var, '%m/%d/%Y') 
+        completion_date = STR_TO_DATE(@completion_date_var, '%m/%d/%Y') 
 
 
-### Explained
+
