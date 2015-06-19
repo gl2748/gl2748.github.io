@@ -36,7 +36,7 @@ I do not have an existing database so I will sketch one out. I want to describe 
 
 #### My original spreadsheet looks a bit like this
 
-    +------------+----------+------/   /------+---------+----------------+
+    +------------+----------+------/   /----- -+---------+----------------+
     | Customer Id| Services | Route/   / zip   | logitude| latitude       |
     +------------+----------+------/   /-------+---------+----------------+
     | Bank1      | clean    | Det  /   / 48212 |-83.21934| 42.49959       |
@@ -112,6 +112,20 @@ Assuming we have successfully created a database we can add a table with the des
         PRIMARY KEY (db_atm_id)
     );
 
-### Let's sketch the LOAD DATA infile command that we will use
+### Let's write the LOAD DATA infile command that we will use
+
+    LOAD DATA LOCAL INFILE '~/det_atm.csv'
+    INTO TABLE atms
+        COLUMNS TERMINATED BY ','
+        OPTIONALLY ENCLOSED BY '"' 
+        ESCAPED BY '"' 
+        LINES TERMINATED BY '\n' 
+        IGNORE 1 LINES
+        (customer_name, services, route, job_id, atm_id, description, address, city, state,   zip, latitude, longitude, placement_information, atm_manufacturer, atm_model, @lsvar, service_after, completion_date)
+    SET 
+        last_service = STR_TO_DATE(@lsvar, '%m/%d/%Y')
+        service_after = STR_TO_DATE(@lsvar, '%m/%d/%Y') 
+        completion_date = STR_TO_DATE(@lsvar, '%m/%d/%Y') 
 
 
+### Explained
