@@ -87,6 +87,12 @@ SHOW COLUMNS FROM atms IN autotellermachines;
 
 ### Create your new table with the desired columns:
 
+First create a new database, we define the character encoding to conform to our CSV:
+
+    CREATE DATABASE autotellermachines
+        DEFAULT CHARACTER SET ascii
+        DEFAULT COLLATE ascii_general_ci;
+
 Assuming we have successfully created a database we can add a table with the desired columns. You can ignore this step if you already have a table with columns.
 
     CREATE TABLE atms (
@@ -114,19 +120,30 @@ Assuming we have successfully created a database we can add a table with the des
 
 ### Let's write the LOAD DATA infile command that we will use
 
+We are using a LOCAL command, so when we initialize our MySQL session be sure to allow LOCAL access:
+
+    mysql --local-infile autotellermachines
+
+Here is the command, with comments.
+
     LOAD DATA LOCAL INFILE '~/det_atm.csv'
     INTO TABLE atms
+        //What is the seperating character? Hint: This is a CSV.
         COLUMNS TERMINATED BY ','
+        //What do columns that contain the same character as the COLUMNS TERMINATED character do? 
         OPTIONALLY ENCLOSED BY '"' 
         ESCAPED BY '"' 
+        //What defines new rows in our CSV?
         LINES TERMINATED BY '\n' 
+        // Do we want all the lines from the CSV? The IGNORE option can only skip lines at the start of the file.
         IGNORE 1 LINES
-        // NOTE we start at the second column of our atms table
+        // If our CSV columns imported in a linear way from left to right, without gaps,  what is the order of the columns that they map onto. We can use @dummy to dump CSV columns i.e. map them to nowhere...
+        // NOTE we start at the second column of our atms table, the db_atm_id is being auto generated incrementally
         (customer_name, services, route, job_id, atm_id, description, address, city, state, zip, latitude, longitude, placement_information, atm_manufacturer, atm_model, @last_service_var, @service_after_var, @completion_date_var)
     SET 
         last_service = STR_TO_DATE(@last_service_var, '%m/%d/%Y')
         service_after = STR_TO_DATE(@service_after_var, '%m/%d/%Y') 
-        completion_date = STR_TO_DATE(@completion_date_var, '%m/%d/%Y') 
+        completion_date = STR_TO_DATE(@completion_date_var, '%m/%d/%Y');
 
 
 
