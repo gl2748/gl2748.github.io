@@ -84,7 +84,7 @@ SHOW COLUMNS FROM atms IN autotellermachines;
         * The elephant in the room is flexible mapping of CSV columns to DB columns. As it stands the work-around for this is to re-order the columns in the DB so that they match the CSV for import, complete the import and then return the database columns to its original order.
 
 
-* My original csv does not include a unique identifier for each ATM I will add a column to my new table to uniquely identify each item. This is what the `db_atm_id SMALLINT(5) NOT NULL AUTO_INCREMENT` and `PRIMARY KEY (db_atm_id)` statements are for.
+* My original csv does not include a unique identifier for each ATM I will add a column to my new table to uniquely identify each item. This is what the `db_atm_id SMALLINT(5) NOT NULL AUTO_INCREMENT` and `PRIMARY KEY (db_atm_id)` statements are for in the CREATE TABLE statement below.
 
 ### Create your new table with the desired columns:
 
