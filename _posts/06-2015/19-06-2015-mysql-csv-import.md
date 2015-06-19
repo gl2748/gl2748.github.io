@@ -11,11 +11,11 @@ We'll go for MySQL but MariaDB is an alternative with a lot of improvements.
 ### Stage your CSV.
 I'm doing this on a remote server so I need to transfer my CSV from local to remote. My CSV contains information on ATM machines throughout the State, including
 geo location and dates when they were last serviced. 
-
+<br>
 ```
 scp det_atm.csv root@104.131.99.220:~/
 ```
-
+<br>
 Now let's take a look at the character set that the CSV is in.
 
 ```
