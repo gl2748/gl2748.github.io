@@ -139,19 +139,19 @@ Here is the command, with comments.
 
     LOAD DATA LOCAL INFILE '~/det_atm.csv'
     INTO TABLE atms
-> //What is the seperating character? Hint: This is a CSV.
+        // What is the seperating character? Hint: This is a CSV.
         COLUMNS TERMINATED BY ','
-> //What do columns that contain the same character as the COLUMNS TERMINATED character do? 
+        // What do columns that contain the same character as the COLUMNS TERMINATED character do? 
         OPTIONALLY ENCLOSED BY '"' 
         ESCAPED BY '"' 
-> //What defines new rows in our CSV?
+        // What defines new rows in our CSV?
         LINES TERMINATED BY '\n' 
-> // Do we want all the lines from the CSV? The IGNORE option can only skip lines at the start of the file.
+        // Do we want all the lines from the CSV? The IGNORE option can only skip lines at the start of the file.
         IGNORE 1 LINES
-> // If our CSV columns imported in a linear way from left to right, without gaps,  what is the order of the columns that they map onto. We can use @dummy to dump CSV columns i.e. map them to nowhere...
-> // NOTE: we start at the second column of our atms table, the db_atm_id is being auto generated incrementally
+        // If our CSV columns imported in a linear way from left to right, without gaps,  what is the order of the columns that they map onto. We can use @dummy to dump CSV columns i.e. map them to nowhere...
+        // NOTE: we start at the second column of our atms table, the db_atm_id is being auto generated incrementally
         (customer_name, services, route, job_id, atm_id, description, address, city, state, zip, latitude, longitude, placement_information, atm_manufacturer, atm_model, @last_service_var, @service_after_var, @completion_date_var)
-> //Now it's time to SET those user variables, user variables that are not set result in a dropped column from the CSV.
+        // Now it's time to SET those user variables, user variables that are not set result in a dropped column from the CSV.
     SET 
         //We need to conform the dates in our CSV to the MySQL standard
         last_service = STR_TO_DATE(@last_service_var, '%m/%d/%Y')
