@@ -160,16 +160,16 @@ We are using a LOCAL command, so when we initialize our MySQL session be sure to
 
 #### Without comments.
 
-LOAD DATA LOCAL INFILE '~/det_atm.csv'
-    INTO TABLE atms
-        COLUMNS TERMINATED BY ','
-        OPTIONALLY ENCLOSED BY '"' 
-        ESCAPED BY '"' 
-        LINES TERMINATED BY '\n' 
-        IGNORE 1 LINES
-        (customer_name, services, route, job_id, atm_id, description, address, city, state, zip, latitude, longitude, placement_information, atm_manufacturer, atm_model, @last_service_var, @service_after_var, @completion_date_var)
-    SET
-        last_service = STR_TO_DATE(@last_service_var, '%m/%d/%Y')
-        service_after = STR_TO_DATE(@service_after_var, '%m/%d/%Y')
-        completion_date = STR_TO_DATE(@completion_date_var, '%m/%d/%Y');
+    LOAD DATA LOCAL INFILE '~/det_atm.csv'
+        INTO TABLE atms
+            COLUMNS TERMINATED BY ','
+            OPTIONALLY ENCLOSED BY '"' 
+            ESCAPED BY '"' 
+            LINES TERMINATED BY '\n' 
+            IGNORE 1 LINES
+            (customer_name, services, route, job_id, atm_id, description, address, city, state, zip, latitude, longitude, placement_information, atm_manufacturer, atm_model, @last_service_var, @service_after_var, @completion_date_var)
+        SET
+            last_service = STR_TO_DATE(@last_service_var, '%m/%d/%Y')
+            service_after = STR_TO_DATE(@service_after_var, '%m/%d/%Y')
+            completion_date = STR_TO_DATE(@completion_date_var, '%m/%d/%Y');
 
