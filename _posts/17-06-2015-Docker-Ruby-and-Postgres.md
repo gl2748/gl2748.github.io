@@ -9,6 +9,9 @@ tags : [ docker containers, bash, postgres, ruby on rails]
 #Ohana meets Docker
 
 ##Introduction
+
+This all refers to [this repository](https://github.com/gl2748/ohana-dockerfiles) - with the pertinent Docker Buildfile and bash scripts.
+
 Much like the [Ohana Vagrant Virtual Machine](https://github.com/codeforamerica/ohana-api-dev-box) "This project automates the setup of a development environment for working on Ohana API" This project also includes the Ohana-Search app, furthermore That project uses Vagrant and this uses Docker...
 
 ##What you'll need
