@@ -21,7 +21,6 @@ Drupal caches get too big, when cron runs it clears some caches, if these are bl
  
 
 ```
-
 x=$(docker ps | wc -l)
 #if number of active containers is less than 3 (number includes the header, really only 2 running containers)
 if [ "$x" -lt 3 ]
