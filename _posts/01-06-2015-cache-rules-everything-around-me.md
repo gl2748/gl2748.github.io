@@ -19,6 +19,7 @@ Drupal caches get too big, when cron runs it clears some caches, if these are bl
 
 2. Write a bashscript to periodically check if the Database container has stopped. 
 
+```bash
     //count the number of running containers.
         x=$(docker ps | wc -l)
     //if number of active containers is less than 3 (number includes the header, really only 2 running containers)
@@ -34,3 +35,4 @@ Drupal caches get too big, when cron runs it clears some caches, if these are bl
 			    docker start ${i}
 	    done
     	fi
+```
