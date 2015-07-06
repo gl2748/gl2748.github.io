@@ -6,6 +6,7 @@ tags : [ docker, ghost, nginx, reverse-proxy]
 ---
 
 Ghost suggests that it not be run on Port 80.
+
     * For Ghost to run on port 80 directly it must be run as the root user.
     * With a single Ghost instance hogging the single port 80 on the server we cannot have a mulitsite or multi subdomain set-up.
 
@@ -21,11 +22,16 @@ Create a non-running data-only volume to hold our ghost data. This is a persiste
     docker run -v /data --name ghostdata dockerfile/ubuntu echo Data-only container for Ghost
 
 ####2.
-Run the ghost container linked to our data-volume. NOTE: Later we will have to edit our ghost config.js file, specifically the database connection/filename, so that it matches the path of the data located in our data volume i.e. '/data/ghostblog.db'. 
+Run the ghost container linked to our data-volume.
+
+NOTE: Later we will have to edit our ghost config.js file, specifically the database connection/filename setting, so that it matches the path of the data located in our data volume i.e. '/data/ghostblog.db'. 
+
     docker run -d --volumes-from ghostdata --name ghostblog  ghost:latest
 
 ####3.
-Create our nginx sites enabled config locally on the host machine. i.e. at `~/docker/nginx/sites-enabled. Importantly here'server_name' is where you will navigate to in your browser to see your running ghost blog. The proxy_pass setting should reflect the name of your ghost container. Note: Later we will have to edit the nginx config to include the 'sites-enabled' directory.
+Create our nginx sites enabled config locally on the host machine. i.e. at '~/docker/nginx/sites-enabled'. 
+
+Importantly here'server_name' is where you will navigate to in your browser to see your running ghost blog. The proxy_pass setting should reflect the name of your ghost container. Note: Later we will have to edit the nginx config to include the 'sites-enabled' directory.
 
     server {
         listen      80;
@@ -41,7 +47,7 @@ Create our nginx sites enabled config locally on the host machine. i.e. at `~/do
     }
 
 ####4.
-Run your nginx contianer and inject the sites-enabled config.
+Run your nginx container and inject the sites-enabled config.
 
     docker run -d -p 80:80 --name nginx --link ghostblog:ghostblog -v ~/docker/nginx/sites-enabled:/etc/nginx/sites-enabled nginx
 
@@ -55,20 +61,22 @@ You will need to install your text-editor of choice.
     apt-get update
     apt-get install vim
 
-edit the nginx config file to include the sites-enabled directory
+edit the nginx config file at /etc/nginx/nginx.conf to include the sites-enabled directory, the pertinent lines are:
 
     include /etc/nginx/conf.d/*.conf;
     include /etc/nginx/sites-enabled/*;
 
-exit the running container and restart it. if it fails to stay running check your config files for typos.
+exit the running container and restart it to propogate config changes. If the nginx contianer fails to stay running check your config files for typos.
 
     ctrl+d
     docker restart nginx
 
-####6.
+check to see if your two containers are running with
 
+    docker ps
+
+And visit blog.mywebsite.com to check it out.
 
 ####Road map
 
 Set up a grand ambassador (although nginx's proxy_pass is kinda nice.)
-In
