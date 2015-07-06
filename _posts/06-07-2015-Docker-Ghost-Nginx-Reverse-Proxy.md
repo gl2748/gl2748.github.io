@@ -7,8 +7,8 @@ tags : [ docker, ghost, nginx, reverse-proxy]
 
 Ghost suggests that it not be run on Port 80.
 
-    * For Ghost to run on port 80 directly it must be run as the root user.
-    * With a single Ghost instance hogging the single port 80 on the server we cannot have a mulitsite or multi subdomain set-up.
+* For Ghost to run on port 80 directly it must be run as the root user.
+* With a single Ghost instance hogging the single port 80 on the server we cannot have a mulitsite or multi subdomain set-up.
 
 Therefore the official docs suggest setting up a reverse proxy to forward requests upstream to Ghost. There are a few options for your reverse-proxy server but here will be using NGINX.
 
