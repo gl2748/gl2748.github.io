@@ -24,14 +24,17 @@ Create a non-running data-only volume to hold our ghost data. This is a persiste
 ####2.
 Run the ghost container linked to our data-volume.
 
-NOTE: Later we will have to edit our ghost config.js file, specifically the database connection/filename setting, so that it matches the path of the data located in our data volume i.e. '/data/ghostblog.db'. 
-
     docker run -d --volumes-from ghostdata --name ghostblog  ghost:latest
 
 ####3.
 Create our Nginx sites enabled config locally on the host machine. i.e. at '~/docker/nginx/sites-enabled'. 
 
-Importantly here'server_name' is where you will navigate to in your browser to see your running ghost blog. The proxy_pass setting should reflect the name of your ghost container. Note: Later we will have to edit the Nginx config to include the 'sites-enabled' directory.
+Importantly:
+
+* `server_name` is where you will navigate to in your browser to see your running ghost blog.
+* `proxy_pass` should reflect the name of your ghost container. 
+
+> Note: Later we will have to edit the Nginx config to include the 'sites-enabled' directory.
 
     server {
         listen      80;
