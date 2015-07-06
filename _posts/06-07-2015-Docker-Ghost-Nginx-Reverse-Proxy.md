@@ -82,4 +82,8 @@ And visit blog.mywebsite.com to check it out.
 
 ####Road map
 
-Set up a grand ambassador (although nginx's proxy_pass is kinda nice.)
+* Set up a grand ambassador (although nginx's proxy_pass is kinda nice.)
+* Add a bash script to inject the sites-enabled dir into etc/nginx/nginx.conf 
+  * Alternatively locally create the nginx.conf and inject at container run.
+
+
