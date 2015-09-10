@@ -22,13 +22,12 @@ We want a view that shows the currently logged in user a list of Samples belongi
 
 
 2. Go to Advanced and select Add Relationship.
-  1. At this point your ‘Samples’ Node type should have an entity reference field relating it to a Company entity. Let’s say it’s called: field_company_id.
+  * At this point your ‘Samples’ Node type should have an entity reference field relating it to a Company entity. Let’s say it’s called: field_company_id.
 
-
-  2. In the Add Relationship options window add the following relationship:
-    * Entity Reference: Referenced Entity
+3. In the Add Relationship options window add the following relationship:
+  * Entity Reference: Referenced Entity
    A bridge to the Content entity that is referenced via field_company_id
-    * Give this the default identifier of:
+  * Give this the default identifier of:
    Content entity referenced from field_company_id
 
 
