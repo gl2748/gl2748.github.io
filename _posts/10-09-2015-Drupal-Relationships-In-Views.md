@@ -37,12 +37,12 @@ A bridge to the Content entity that is referenced via field_company_id
 
 4. Now because we want to use these relationships as contextual filters for our views we need to add them as fields to the view. Importantly by adding these relationships fields from related content are available to display on our view. 
   * For example we can have a column that lists associated users for each sample.
-Add Field: 
+  * Add Field: 
 Content: Associated user Appears in: node:client
 Select Relationship:
 Content entity referenced from field_sample_client_id
   * More importantly we can add UIDs of associated users for each sample.
-Add Field:
+      * Add Field:
 User:Uid
 Select Relationship:
 User entity referenced from field_associated_user_id
