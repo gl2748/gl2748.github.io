@@ -23,32 +23,29 @@ We want a view that shows the currently logged in user a list of Samples belongi
 
 2. Go to Advanced and select Add Relationship.
   * At this point your ‘Samples’ Node type should have an entity reference field relating it to a Company entity. Let’s say it’s called: field_company_id.
-    * In the Add Relationship options window add the following relationship:
-    * Entity Reference: Referenced Entity
+  * In the Add Relationship options window add the following relationship:
+  * Entity Reference: Referenced Entity
 A bridge to the Content entity that is referenced via field_company_id
-    * Give this the default identifier of:
+  * Give this the default identifier of:
   Content entity referenced from field_company_id
 
+3. Now if we select Add Relationship again we see entity reference fields from the ‘Companies’ node type are available. Specifically:
+  * Entity Reference: Referenced Entity
+  A bridge to the User entity that is referenced via field_associated_user_id
+  * Give this the default identifier of:
+  User entity referenced from field_associated_user_id
 
-Now if we select Add Relationship again we see entity reference fields from the ‘Companies’ node type are available. Specifically:
-Entity Reference: Referenced Entity
-A bridge to the User entity that is referenced via field_associated_user_id
-Give this the default identifier of:
-User entity referenced from field_associated_user_id
-
-
-Now because we want to use these relationships as contextual filters for our views we need to add them as fields to the view. Importantly by adding these relationships fields from related content are available to display on our view. 
-For example we can have a column that lists associated users for each sample.
+4. Now because we want to use these relationships as contextual filters for our views we need to add them as fields to the view. Importantly by adding these relationships fields from related content are available to display on our view. 
+  * For example we can have a column that lists associated users for each sample.
 Add Field: 
 Content: Associated user Appears in: node:client
 Select Relationship:
 Content entity referenced from field_sample_client_id
-More importantly we can add UIDs of associated users for each sample.
+  * More importantly we can add UIDs of associated users for each sample.
 Add Field:
 User:Uid
 Select Relationship:
 User entity referenced from field_associated_user_id
 
-
-With the UIDs field in the view we can now add a contextual filter that gets its default value from the UID of the currently logged in user.
+5. With the UIDs field in the view we can now add a contextual filter that gets its default value from the UID of the currently logged in user.
 
