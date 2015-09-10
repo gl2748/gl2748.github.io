@@ -18,18 +18,18 @@ Companies have an entity reference field (field_associated_user_id) listing the 
 
 We want a view that shows the currently logged in user a list of Samples belonging to the company that they(the logged in user) are associated with. To do this we use Relationships in views, and crucially we chain multiple relationships together to access entities referenced at more than one step removed. (technically we can go infinitely deep with this approach.)
 
-Create a view that only shows content type Samples:
+1. Create a view that only shows content type Samples:
 
 
-Go to Advanced and select Add Relationship.
-At this point your ‘Samples’ Node type should have an entity reference field relating it to a Company entity. Let’s say it’s called: field_company_id.
+2. Go to Advanced and select Add Relationship.
+  1. At this point your ‘Samples’ Node type should have an entity reference field relating it to a Company entity. Let’s say it’s called: field_company_id.
 
 
-In the Add Relationship options window add the following relationship:
-Entity Reference: Referenced Entity
-A bridge to the Content entity that is referenced via field_company_id
-Give this the default identifier of:
-Content entity referenced from field_company_id
+  2. In the Add Relationship options window add the following relationship:
+    * Entity Reference: Referenced Entity
+   A bridge to the Content entity that is referenced via field_company_id
+    * Give this the default identifier of:
+   Content entity referenced from field_company_id
 
 
 Now if we select Add Relationship again we see entity reference fields from the ‘Companies’ node type are available. Specifically:
