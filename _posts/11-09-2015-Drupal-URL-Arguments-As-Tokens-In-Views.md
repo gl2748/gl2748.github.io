@@ -39,9 +39,11 @@ As a concrete example, let's say after adding a new user to a site we want to be
   * Step 3: is to create a custom text field that pulls in the users that are already associated with the node, after all we don't want our new value over-writting the existing data for the field we are targetting. This field is also excluded from the display, it simply builds a token that we will use in the next step, this token is: [field_associated_user_id]. We can configure the multi-value results to conform with pre-populate module that we will need to patch to accomodate multi-values.
 Finally note the ',' that precedes the token for the associated users field that is already available to views.
 ![drupal custom text field format extant field with comma]({{ site.url }}/assets/Drupal_11.png)
-  * Step 3: is to combine these three tokens into a link that pre-populates the relevant field on our target nodes. Here are the tokens as they appear in the 'replacement patterns dialogue:
+  * Step 3: is to combine these three tokens into a link that pre-populates the relevant field on our target nodes. Here are the tokens as they appear in the 'replacement patterns' dialogue:
 ![drupal available tokens]({{ site.url }}/assets/Drupal_11i.png)
+
 and here is the complete re-direct link:
+
 ![drupal available tokens]({{ site.url }}/assets/Drupal_13.png)
 
 
