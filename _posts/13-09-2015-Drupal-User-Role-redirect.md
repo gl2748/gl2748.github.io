@@ -61,4 +61,4 @@ function _psilabs_frontdirector_page() {
     drupal_access_denied();
   }
 }
-{% endhighlight %}
+{% endhighlight php %}
