@@ -5,7 +5,6 @@ tagline: "Redirect users based on their role"
 tags : [drupal, php]
 ---
 
-{% highlight php %}
 <?php
 /**
  * Helper function
@@ -61,6 +60,3 @@ function _psilabs_frontdirector_page() {
     drupal_access_denied();
   }
 }
-
-{% endhighlight %}
-{% endhighlight %}
