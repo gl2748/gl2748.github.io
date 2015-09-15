@@ -7,6 +7,7 @@ tags : [drupal, php]
 
 In this code snippet we check the user role and redirect them to a different page depending on their user role.
 Usefully, this approach can be used to redirect different users to different homepages upon login. This is done by setting the global site homepage to our hook_menu path, in this case /frontdirector.
+
 ```php
 <?php
 
