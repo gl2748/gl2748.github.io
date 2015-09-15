@@ -20,7 +20,7 @@ function _query_user_has_role($user, $role){
 }
 
 /**
- * Implements of hook_menu()
+ * Implements hook_menu()
  */
 
 function psilabs_frontdirector_menu() {
@@ -61,4 +61,6 @@ function _psilabs_frontdirector_page() {
     drupal_access_denied();
   }
 }
-{% endhighlight php %}
+
+{% endhighlight %}
+{% endhighlight %}
