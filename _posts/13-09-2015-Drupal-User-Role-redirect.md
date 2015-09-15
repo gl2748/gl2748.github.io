@@ -5,6 +5,8 @@ tagline: "Redirect users based on their role"
 tags : [drupal, php]
 ---
 
+Some buffer text AYE
+
 {% highlight php %}
 
 <?php
