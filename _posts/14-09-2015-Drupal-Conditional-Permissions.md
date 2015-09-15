@@ -13,7 +13,7 @@ In our example each node has an entity reference field of users associated with 
 
 In our example we have a slightly more convoluted senario. Here we have samples that are associated with a client and users associated with that client. We want to give permissions to these users to publish/unpublish the content associated with the client that they themselves are associated with.
 
-```
+{% highlight php %}
 
 <?php
 
@@ -148,4 +148,4 @@ function psilabs_str_publishcontent_unpublish_access($node, $user) {
   return PUBLISHCONTENT_ACCESS_IGNORE;
 }
 
-```
+{% endhighlight %}
