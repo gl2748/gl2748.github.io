@@ -4,6 +4,7 @@ category : drupal
 tagline: "Redirecting users  based on their role"
 tags : [drupal, php]
 ---
+
 {% highlight php %}
 <?php
 

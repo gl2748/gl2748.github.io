@@ -5,13 +5,11 @@ tagline: "Giving users permissions based on their role"
 tags : [drupal, php, publishcontent, API]
 ---
 
-The [PublishContent Module](http://cgit.drupalcode.org/publishcontent/tree/publishcontent.api.php) provides an API hook for publish content permissions. This is a powerful feature when we want to expand publish permissions beyond efaults.
+The [PublishContent Module](http://cgit.drupalcode.org/publishcontent/tree/publishcontent.api.php) provides an API hook for publish content permissions. This is a powerful feature when we want to expand publish permissions beyond defaults.
 
 In this example we will grant a logged-in-user publish/unpublish controls over content that they are indirectly associated with. By default publish/unpublish controls attach to a node author, and there can only ever be one node author attached directly to a particular etity. Therefore you can see how this approach is useful whenever we want to grant author-like power to more than one user at more than one stage removedd.
 
-In our example each node has an entity reference field of users associated with that node. For example we could have nodes for different companies with a user reference field listing employees who can log into the drupal site and edit the node for their company.
-
-In our example we have a slightly more convoluted senario. Here we have samples that are associated with a client and users associated with that client. We want to give permissions to these users to publish/unpublish the content associated with the client that they themselves are associated with.
+In our example we have three entities, samples, clients and users. The samples are related to clients via an entity reference field on the sample entity and the clients are related to users via an entity reference field on the client entity. We want to give permissions to these users to publish/unpublish the content associated with the client that they themselves are associated with.
 
 {% highlight php %}
 
