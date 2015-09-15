@@ -11,9 +11,7 @@ In this example we will grant a logged-in-user publish/unpublish controls over c
 
 In our example we have three entities, samples, clients and users. The samples are related to clients via an entity reference field on the sample entity and the clients are related to users via an entity reference field on the client entity. We want to give permissions to these users to publish/unpublish the content associated with the client that they themselves are associated with.
 
-{% highlight php %}
-
-<?php
+```php
 
 /**
  * Psuedo-code sketching out what this does.
@@ -146,4 +144,4 @@ function psilabs_str_publishcontent_unpublish_access($node, $user) {
   return PUBLISHCONTENT_ACCESS_IGNORE;
 }
 
-{% endhighlight %}
+```
