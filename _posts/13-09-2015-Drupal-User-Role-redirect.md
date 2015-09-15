@@ -9,7 +9,8 @@ tags : [drupal, php]
 
 <?php
 
-/* Helper function
+/**
+ * Helper function
  * If user has any role return TRUE.
  */
 
@@ -20,7 +21,7 @@ function _query_user_has_role($user, $role){
   return FALSE;
 }
 
-/*
+/**
  * Implementation of hook_menu()
  */
 
@@ -34,7 +35,7 @@ function psilabs_frontdirector_menu() {
   return $items;
 }
 
-/*
+/**
  * If user has role Client_User redirect to manage-my-samples
  * If user has role Data Manager or Data Viewer redirect to manage samples.
  * If user has no role redirect to html 403 access denied.
