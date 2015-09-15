@@ -5,12 +5,8 @@ tagline: "Redirect users based on their role"
 tags : [drupal, php]
 ---
 
-Some buffer text AYE
-
 {% highlight php %}
-
 <?php
-
 /**
  * Helper function
  * If user has any role return TRUE.
@@ -24,7 +20,7 @@ function _query_user_has_role($user, $role){
 }
 
 /**
- * Implementation of hook_menu()
+ * Implements of hook_menu()
  */
 
 function psilabs_frontdirector_menu() {
@@ -65,5 +61,4 @@ function _psilabs_frontdirector_page() {
     drupal_access_denied();
   }
 }
-
 {% endhighlight %}
