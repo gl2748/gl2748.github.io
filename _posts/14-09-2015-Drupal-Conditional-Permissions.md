@@ -1,9 +1,10 @@
 ---
 layout: post
 category : drupal
-tagline: "Giving user permissions based on their role"
+tagline: "Giving users permissions based on their role"
 tags : [ drupal, php, publishcontent, API]
 ---
+
 The [PublishContent Module](http://cgit.drupalcode.org/publishcontent/tree/publishcontent.api.php) provides an API hook for publish content permissions. This is a powerful feature when we want to expand publish permissions beyond efaults.
 
 In this example we will grant a logged-in-user publish/unpublish controls over content that they are indirectly associated with. By default publish/unpublish controls attach to a node author, and there can only ever be one node author attached directly to a particular etity. Therefore you can see how this approach is useful whenever we want to grant author-like power to more than one user at more than one stage removedd.
