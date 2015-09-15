@@ -22,16 +22,15 @@ As a concrete example, let's say after adding a new user to a site we want to be
 ![Drupal rules page redirect on new user account creation diagram]({{ site.url }}/assets/Drupal_4.png)
 
 2. Create a view that displays all of our nodes that we want to associate users with. In this example our view is configured to be at /client-list.
-![Drupal basic views page configuration]({{ site.url }}/assets/Drupal_5.png)
 
-3. At this point we have our rule redirecting to /client-list/[account:uid]. However, the challenge of passing that UID to the links displayed in our view remains. To do this we add a contextual filter 'Global Null' and provide a default value from a path component of our URL.
+3. At this point we have our rule redirecting to /client-list/[account:uid]. However, the challenge of passing that UID to the links displayed in our view remains. To do this we add a contextual filter 'Global Null' to our view and provide a default value from a path component of our URL.
 ![Drupal global null contextual filter]({{ site.url }}/assets/Drupal_6.png)
 ![Drupal global null default value path component]({{ site.url }}/assets/Drupal_7.png)
 
 4. Adding this global null makes whatever value it pulls available as a token for our view. This is handy when we have a field or link that we want to re-write results for.
 ![Drupal global null default value path component]({{ site.url }}/assets/Drupal_8.png)
 
-5. In our case we want to display an 'assign New User to this Client' link for each node displayed in our client-list view. Therefore we add a custom text field that pulls the token for the node:path, and appends a properly formatted string [pre-populate module](https://www.drupal.org/project/prepopulate) to prepopulate the relvant field on that node. However we will see that there are a few complicating factors Therefore our approach is to build tokens that can be combined to create a link that accomodates all of our variables.
+5. In our case we want to display an 'Assign New User to this Client' link for each node displayed in our client-list view. Therefore we add a custom text field that pulls the token for the node:path, and appends a properly formatted string [pre-populate module](https://www.drupal.org/project/prepopulate) to prepopulate the relvant field on that node. However we will see that there are a few complicating factors Therefore our approach is to build tokens that can be combined to create a link that accomodates all of our variables.
   * Step 1: is to create the token for the path where the node lives. This is simply a matter of adding a field for content:path and exculding it from our display. Thereafter it is available as a token [path] to our view.
   * Step 2: is to create the token for the pre-populate string. This is also the field that pulls the Global Null that we just defined in the contextual filter Global:Null. It will be availble as token [nothing].
 Finally note the ',' that's at the end ... this is because there might be more than one associated user already associated with the node.
