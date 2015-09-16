@@ -7,7 +7,7 @@ tags : [drupal, php, publishcontent, API]
 
 The [PublishContent Module](http://cgit.drupalcode.org/publishcontent/tree/publishcontent.api.php) provides an API hook for publish content permissions. This is a powerful feature when we want to expand publish permissions beyond defaults.
 
-In this example we will grant a logged-in-user publish/unpublish controls over content that they are indirectly associated with. By default publish/unpublish controls attach to a node author, and there can only ever be one node author attached directly to a particular etity. Therefore you can see how this approach is useful whenever we want to grant author-like power to more than one user at more than one stage removedd.
+In this example we will grant a logged-in-user publish/unpublish controls over content that they are indirectly associated with. By default publish/unpublish controls attach to a node author, and there can only ever be one node author attached directly to a particular entity. Therefore you can see how this approach is useful whenever we want to grant author-like power to more than one user at more than one stage removed.
 
 In our example we have three entities, samples, clients and users. The samples are related to clients via an entity reference field on the sample entity and the clients are related to users via an entity reference field on the client entity. We want to give permissions to these users to publish/unpublish the content associated with the client that they themselves are associated with.
 
