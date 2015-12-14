@@ -21,3 +21,18 @@ this.featuredArticleFollowThrough = function() {
     return browser;
   }
 ```
+```javascript
+this.createEditorUser = function() {
+    function createtestuser(callback) {
+      var cmd = 'drush @robbreport.local ucrt editorUser --password="editor"; drush @robbreport.local urol "editor" --name=editorUser';
+      exec(cmd, function() {
+        console.log('---Creating test user.---');
+        return callback;
+      })
+    };
+
+    browser
+      createtestuser();
+    return browser;
+  }
+```
