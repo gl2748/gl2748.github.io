@@ -7,12 +7,10 @@ tags : [drupal, views, drush]
 
 Views in drupal are database queries. They can be tricky to manage because they function themselves to simplify the tricky task of making complex database queries. Preparing for a big site overhaul I found myself writing summaries for existing views on a site. Here we look at a way to get a neat summary of our views. 
 
-The first step is to find away to access our views programmatically. To do this we use [views_get_all_views](https://api.drupal.org/api/views/views.module/function/views_get_all_views/7), described as:
-"Return an array of all views as fully loaded $view objects."
+The first step is to find away to access our views programmatically. To do this we use *[views_get_all_views](https://api.drupal.org/api/views/views.module/function/views_get_all_views/7)*, described as:
+> "Return an array of all views as fully loaded $view objects."
 With this in mind we initially want to take a look at how these view objects are structured:
-`
-drush ev "print_r(views_get_all_views());"
-`
+`drush ev "print_r(views_get_all_views());"`
 
 Outputs something like this:
 
