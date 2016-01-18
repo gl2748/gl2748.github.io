@@ -25,7 +25,7 @@ tags : [ css, html, background, sprites, responsive]
           <img class="spacer" alt="icon" src="/sites/all/themes/at_robbreport/img/sprite_spacer.png">
           <img class="sprite pinterest" alt="robb report pintrest" src="/sites/all/themes/at_robbreport/img/sprite_social.png">
         </a>
-      </li>
+</li>
 ```
 
 ```css
@@ -68,6 +68,12 @@ tags : [ css, html, background, sprites, responsive]
 ```
   
 Notes:
-Master sprite dimension: 566px x 93px
-Master sprite height as percentage of 32px target dimension: 290.525%
+Taken from: http://tobyj.net/responsive-sprites/
+*  sprite_spacer.png is a 1x1 transparent png - get yours here: http://www.1x1px.me/
+*  Added value: The tobyj responsive sprite demo does not support a master sprite image that is irregular in height to the target sprite dimensions.
+*  Sprites being targetted are those on the top row. Other images in the sprite are not relavant here, except to illustrate a typical master sprite with irregular width etc...
+*  The top row spacing is: 32px square icon, 32px padding, 32px icon, 32px padding etc... this let's us use a nice 100%, 200% left offset later.
+*  Master sprite dimension: 566px x 93px
+*  Master sprite height as percentage of 32px target dimension: 290.525% hence .sprite {height: 292%;}
+*  Live at: www.robbreport.com
 
