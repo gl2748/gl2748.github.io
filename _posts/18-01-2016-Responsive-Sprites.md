@@ -5,7 +5,7 @@ tagline: "Responsive sprites without using css background property"
 tags : [ css, html, background, sprites, responsive]
 ---
 
-![Responsive sprites without background property]({{ site.url }}/assets/social_sprite.png)
+![Responsive sprites without background property]({{ site.url }}/assets/sprite_social.png)
 
 ```html
 <li class="social">
