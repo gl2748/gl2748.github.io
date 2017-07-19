@@ -5,7 +5,7 @@ tagline: "Summarize views"
 tags : [drupal, views, drush]
 ---
 
-Views in drupal are database queries. They can be difficult to manage because they abstract the tricky task of making complex database queries. Preparing for a big site overhaul I found myself writing summaries for existing views on a site. Here we look at a way to get a neat summary of our views. 
+Views in drupal are database queries. They can be difficult to manage because they abstract the tricky task of making complex database queries. Preparing for a big site overhaul I found myself writing summaries for existing views on a site. Here we look at a way to get a neat summary of our views.
 
 The first step is to find away to access our views programmatically. To do this we use *[views_get_all_views](https://api.drupal.org/api/views/views.module/function/views_get_all_views/7)*, described as:
 > "Return an array of all views as fully loaded $view objects."
@@ -27,11 +27,11 @@ Outputs something like this:
                 [tag] => nodequeue
                 [human_name] => Home Left Column
                 [core] => 0
-                [api_version] => 
+                [api_version] =>
                 [disabled] => 1
-                [built] => 
-                [executed] => 
-                [editing] => 
+                [built] =>
+                [executed] =>
+                [editing] =>
 
 This gives us some information on the views objects that we have access to. It is not visible in my snippet, but properties of the views object shift between objects and arrays and objects again, this is is pertinent when we *[get/set property values](http://php.net/manual/en/sdo.sample.getset.php)* deeper inside the object. e.g.
 `$view->display['default']->display_options['fields']['php']['php_value'],`

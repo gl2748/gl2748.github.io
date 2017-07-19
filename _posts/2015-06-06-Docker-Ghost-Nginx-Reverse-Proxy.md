@@ -27,12 +27,12 @@ Run the ghost container linked to our data-volume.
     docker run -d --volumes-from ghostdata --name ghostblog  ghost:latest
 
 ####3.
-Create our Nginx sites enabled config locally on the host machine. i.e. at '~/docker/nginx/sites-enabled'. 
+Create our Nginx sites enabled config locally on the host machine. i.e. at '~/docker/nginx/sites-enabled'.
 
 Importantly:
 
 * `server_name` is where you will navigate to in your browser to see your running ghost blog.
-* `proxy_pass` should reflect the name of your ghost container. 
+* `proxy_pass` should reflect the name of your ghost container.
 
 > Note: Later we will have to edit the Nginx config to include the 'sites-enabled' directory.
 
@@ -55,7 +55,7 @@ Run your Nginx container and inject the sites-enabled config.
     docker run -d -p 80:80 --name nginx --link ghostblog:ghostblog -v ~/docker/nginx/sites-enabled:/etc/nginx/sites-enabled nginx
 
 ####5.
-Enter the running nginx container and edit the /etc/nginx/nginx.conf file to include the sites-enabled directory. 
+Enter the running nginx container and edit the /etc/nginx/nginx.conf file to include the sites-enabled directory.
 
     docker exec -it nginx bash
 
@@ -83,7 +83,5 @@ And visit blog.mywebsite.com to check it out.
 ####Road map
 
 * Set up a grand ambassador (although nginx's proxy_pass is kinda nice.)
-* Add a bash script to inject the sites-enabled dir into etc/nginx/nginx.conf 
+* Add a bash script to inject the sites-enabled dir into etc/nginx/nginx.conf
   * Alternatively locally create the nginx.conf and inject at container run.
-
-
