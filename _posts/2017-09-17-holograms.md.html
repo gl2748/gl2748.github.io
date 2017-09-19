@@ -99,7 +99,7 @@ As shown in fig. [setup] the center of the groove __i__ is found by casting a ra
 
 $$ i = v - \left(\frac{v_y}{p_y - v_y}\right)(p-v) $$
 
-Zooming in on the groove [Figure [groove diagram]], we see how the incident light interacts with the interior of the groove, passing through the virtual point __p__ and onto the viewer at __v__. 
+Zooming in on the groove [Figure [groove]], we see how the incident light interacts with the interior of the groove, passing through the virtual point __p__ and onto the viewer at __v__. 
 
 ******************************************************************
 *                                                                *
@@ -121,7 +121,7 @@ Zooming in on the groove [Figure [groove diagram]], we see how the incident ligh
 *                                 i                              *
 *                                                                *
 ******************************************************************
-[Figure [groove diagram]: Detailed view of the cross-sectional profile of a groove for one point]
+[Figure [groove]: Detailed view of the cross-sectional profile of a groove for one point]
 
 The length of the groove __q__ as well as its shape is determined by the change in viewer position.
 Moving the viewer position __v__ gives another point of intersection on the plane. Joining these two points of intersection gives us a smoothed path.
@@ -157,19 +157,21 @@ Having calculated the point of intersection for all the visible points __p__ we 
  
 Move the viewer position __v__  and recalculate this points of intersection __i__ on the plane.
 
-Next we draw a continuous line(l) through all of the points to reflect the point's movement over time.
+Next we draw a continuous line __q__  through all of the intersection points for each highlight point to reflect the highlight point's movement over time. 
+For each unique point in the point cloud we draw a distinct curve or set of curves (as the case may be when a point is occluded and subsequently reappears)
 
-Having generated an individual bezier curve(l) for each point(i) as it remains visible through whatever motion cast these to an svg file.
+Having generated an individual path __q__ for each point __p__ as it remains visible through whatever motion cast these to an svg file.
 
 ## Github
 
 Code is available as a Blender script on [github](https://github.com/gl2748/scratch-holograms)
 
-We leverage a few useful tools from Blender's Python API, most crucially.
+We leverage a few useful tools from Blender's Python API and developer ecosystem, most crucially.
 
-1. BVH trees.
-2. Raycasting.
-3. Itertools.
+1. BVH trees, required for efficient raycasting.
+2. Raycasting, required to determine if a point is visible.
+3. Itertools, required to sort through the points of intersection, group them by consecutive view positions and virtual point they represent.
+4. An SVG generator plugin for Blender, required to easily export the generated paths into toolpath software.
 
 # Manufacturing
 
@@ -186,7 +188,9 @@ The work documented here is still in progress.
 
 I am exploring a few interesting areas using this method, in particular animated holograms, temporary holograms and holograms at a large scale.
 
-By the same token there are a number of areas where this process can be improved. Notably optimizing the distribution of points across the 3D model surface. Taking greater control of the groove interior and broadening the range of viewable positions.
+By the same token there are a number of areas where this process can be improved.
+Notably optimizing the distribution of points across the 3D model surface.
+Taking greater control of the groove interior and broadening the range of viewable positions.
 
 
 <!-- Markdeep: --><style class="fallback">body{visibility:hidden;white-space:pre;font-family:monospace}</style><script src="markdeep.min.js"></script><script src="https://casual-effects.com/markdeep/latest/markdeep.min.js"></script><script>window.alreadyProcessedMarkdeep||(document.body.style.visibility="visible")</script>
